@@ -1,0 +1,82 @@
+﻿@model Minibus_Hire_System.web.Models.Home.VehicleViewModel
+@{
+    Layout = "_AdminLayout";
+}
+
+
+<div class="card shadow">
+    <div class="card-header">
+        <h3 class="mb-0">Update Vehicle</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="UpdateVehicle" asp-controller="Vehicle">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <label asp-for="Make"></label>
+                    <div class="input-group input-group-icon">
+                        <input asp-for="Make" placeholder="MaKe" />
+                        <div class="input-icon"><i class="fa fa-search-plus text-primary"></i></div>
+                        <span asp-validation-for="Make"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <label asp-for="Vehicle_Model"></label>
+                    <div class="input-group input-group-icon">
+                        <input asp-for="Vehicle_Model" placeholder="MaKe" />
+                        <div class="input-icon"><i class="fa fa-search-plus text-primary"></i></div>
+                        <span asp-validation-for="Vehicle_Model"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <label asp-for="Mileage"></label>
+                    <div class="input-group input-group-icon">
+                        <input asp-for="Mileage" placeholder="MaKe" />
+                        <div class="input-icon"><i class="fa fa-search-plus text-primary"></i></div>
+                        <span asp-validation-for="Mileage"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <label asp-for="Name_plate"></label>
+                    <div class="input-group input-group-icon">
+                        <input asp-for="Name_plate" placeholder="MaKe" />
+                        <div class="input-icon"><i class="fa fa-search-plus text-primary"></i></div>
+                        <span asp-validation-for="Name_plate"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <label asp-for="Vehicle_Type"></label>
+                    <div class="input-group input-group-icon">
+                        <input asp-for="Vehicle_Type" placeholder="MaKe" />
+                        <div class="input-icon"><i class="fa fa-search-plus text-primary"></i></div>
+                        <span asp-validation-for="Vehicle_Type"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <label asp-for="ImageFileName"></label>
+                    <div class="input-group input-group-icon">
+                        <input asp-for="ImageFileName" placeholder="MaKe" />
+                        <div class="input-icon"><i class="fa fa-search-plus text-primary"></i></div>
+                        <span asp-validation-for="ImageFileName"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <label asp-for="Description"></label>
+                    <div class="input-group input-group-icon">
+                        <textarea asp-for="Description" placeholder="MaKe" style="width:100%;"></textarea>
+                        <span asp-validation-for="Description"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <button class="btn btn-warning btn-lg" type="submit">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Styles {
+    <link href="~/css/FormStyle.css" rel="stylesheet" />
+}

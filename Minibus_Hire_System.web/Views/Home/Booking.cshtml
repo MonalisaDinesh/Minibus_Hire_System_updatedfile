@@ -1,0 +1,106 @@
+﻿@model Minibus_Hire_System.web.Models.Home.BookingViewModel
+@{
+
+}
+
+<div class="container" style="margin-top:100px;">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card shadow">
+                <div class="card-header"><h3>Vehicle</h3></div>
+                <div class="card-body">
+                    <img src="~/Images/Vehicle_img/@Model.Vehicle.ImageFileName" />
+                    @Model.Vehicle.Make
+                    @Model.Vehicle.Model
+                    @Model.Vehicle.Mileage
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card shadow">
+                <div class="card-header">Booking Details</div>
+                <div class="card-body">
+                    <form asp-action="Booking" asp-controller="Home">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <label asp-for="Booking_Type"></label>
+                                <input asp-for="Booking_Type" />
+                                <span asp-validation-for="Booking_Type"></span>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <!-- Date input -->
+                                    <label class="control-label" asp-for="Booking_Date"></label>
+                                    <input asp-for="Booking_Date" class="form-control" placeholder="MM/DD/YYY" type="text" />
+                                </div>
+                                @*<label asp-for="Booking_Date"></label>
+                                <input asp-for="Booking_Date" />
+                                <span asp-validation-for="Booking_Date"></span>*@
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label asp-for="Booking_Description"></label>
+                                <input asp-for="Booking_Description" />
+                                <span asp-validation-for="Booking_Description"></span>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label asp-for="CardNumber"></label>
+                                <input asp-for="CardNumber" />
+                                <span asp-validation-for="CardNumber"></span>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label asp-for="SortCode"></label>
+                                <input asp-for="SortCode" />
+                                <span asp-validation-for="SortCode"></span>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label asp-for="CardSecurityNumber"></label>
+                                <input asp-for="CardSecurityNumber" />
+                                <span asp-validation-for="CardSecurityNumber"></span>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label asp-for="UserLicenseNumber"></label>
+                                <input asp-for="UserLicenseNumber" />
+                                <span asp-validation-for="UserLicenseNumber"></span>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary btn-lg" type="submit">Book</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+@section Styles {
+    <link href="~/css/BookingFormStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+}
+
+@section Scripts {
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var date_input = $('input[name="date"]'); //our date input has the name "date"
+            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+            var options = {
+                format: 'dd/mm/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            };
+            date_input.datepicker(options);
+        })
+    </script>
+}

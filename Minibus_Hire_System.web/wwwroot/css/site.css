@@ -1,0 +1,298 @@
+﻿@charset "UTF-8";
+body {
+    background: linear-gradient(to right, #b92b27, #1565c0)!important;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+hr.divider {
+    max-width: 3.25rem;
+    border-width: 0.2rem;
+    border-color: #f4623a;
+}
+
+hr.light {
+    border-color: #fff;
+}
+
+.btn {
+    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.btn-xl {
+    padding: 1.25rem 2.25rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10rem;
+}
+
+.page-section {
+    padding: 8rem 0;
+}
+
+#mainNav {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    transition: background-color 0.2s ease;
+}
+
+    #mainNav .navbar-brand {
+        font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-weight: 700;
+        color: #212529;
+    }
+
+    #mainNav .navbar-nav .nav-item .nav-link {
+        color: #6c757d;
+        font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-weight: 700;
+        font-size: 0.9rem;
+        padding: 0.75rem 0;
+    }
+
+        #mainNav .navbar-nav .nav-item .nav-link:hover, #mainNav .navbar-nav .nav-item .nav-link:active {
+            color: #f4623a;
+        }
+
+        #mainNav .navbar-nav .nav-item .nav-link.active {
+            color: #f4623a !important;
+        }
+
+@media (min-width: 992px) {
+    #mainNav {
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+        #mainNav .navbar-brand {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+            #mainNav .navbar-brand:hover {
+                color: #fff;
+            }
+
+        #mainNav .navbar-nav .nav-item .nav-link {
+            color: rgba(255, 255, 255, 0.7);
+            padding: 0 1rem;
+        }
+
+            #mainNav .navbar-nav .nav-item .nav-link:hover {
+                color: #fff;
+            }
+
+        #mainNav .navbar-nav .nav-item:last-child .nav-link {
+            padding-right: 0;
+        }
+
+        #mainNav.navbar-scrolled {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            background-color: #fff;
+        }
+
+            #mainNav.navbar-scrolled .navbar-brand {
+                color: #212529;
+            }
+
+                #mainNav.navbar-scrolled .navbar-brand:hover {
+                    color: #f4623a;
+                }
+
+            #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link {
+                color: #212529;
+            }
+
+                #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link:hover {
+                    color: #f4623a;
+                }
+}
+
+header.masthead {
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 4.5rem);
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/tobias-tullius-G-cN813AGEk-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+    header.masthead h1 {
+        font-size: 2.25rem;
+    }
+
+@media (min-width: 992px) {
+    header.masthead {
+        height: 100vh;
+        min-height: 40rem;
+        padding-top: 4.5rem;
+        padding-bottom: 0;
+    }
+
+        header.masthead p {
+            font-size: 1.15rem;
+        }
+
+        header.masthead h1 {
+            font-size: 3rem;
+        }
+}
+
+@media (min-width: 1200px) {
+    header.masthead h1 {
+        font-size: 3.5rem;
+    }
+}
+
+#portfolio .container-fluid, #portfolio .container-sm, #portfolio .container-md, #portfolio .container-lg, #portfolio .container-xl {
+    max-width: 1920px;
+}
+
+    #portfolio .container-fluid .portfolio-box, #portfolio .container-sm .portfolio-box, #portfolio .container-md .portfolio-box, #portfolio .container-lg .portfolio-box, #portfolio .container-xl .portfolio-box {
+        position: relative;
+        display: block;
+    }
+
+        #portfolio .container-fluid .portfolio-box .portfolio-box-caption, #portfolio .container-sm .portfolio-box .portfolio-box-caption, #portfolio .container-md .portfolio-box .portfolio-box-caption, #portfolio .container-lg .portfolio-box .portfolio-box-caption, #portfolio .container-xl .portfolio-box .portfolio-box-caption {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            opacity: 0;
+            color: #fff;
+            background: rgba(244, 98, 58, 0.9);
+            transition: opacity 0.25s ease;
+            text-align: center;
+        }
+
+            #portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-category {
+                font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                font-size: 0.85rem;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+
+            #portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-name {
+                font-size: 1.2rem;
+            }
+
+        #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption {
+            opacity: 1;
+        }
+
+.text-white-75 {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+#about {
+    background-image: url('~/assets/img/portfolio/fullsize/about.jpg');
+   
+}
+
+
+
+/*----  Main Style  ----*/
+#cards_landscape_wrap-2 {
+    text-align: center;
+}
+
+    #cards_landscape_wrap-2 .container {
+        padding-top: 80px;
+        padding-bottom: 100px;
+    }
+
+    #cards_landscape_wrap-2 a {
+        text-decoration: none;
+        outline: none;
+    }
+
+    #cards_landscape_wrap-2 .card-flyer {
+        border-radius: 5px;
+    }
+
+        #cards_landscape_wrap-2 .card-flyer .image-box {
+            background: #ffffff;
+            overflow: hidden;
+            box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.50);
+            border-radius: 5px;
+        }
+
+            #cards_landscape_wrap-2 .card-flyer .image-box img {
+                -webkit-transition: all .9s ease;
+                -moz-transition: all .9s ease;
+                -o-transition: all .9s ease;
+                -ms-transition: all .9s ease;
+                width: 100%;
+                height: 200px;
+            }
+
+        #cards_landscape_wrap-2 .card-flyer:hover .image-box img {
+            opacity: 0.7;
+            -webkit-transform: scale(1.15);
+            -moz-transform: scale(1.15);
+            -ms-transform: scale(1.15);
+            -o-transform: scale(1.15);
+            transform: scale(1.15);
+        }
+
+        #cards_landscape_wrap-2 .card-flyer .text-box {
+            text-align: center;
+        }
+
+            #cards_landscape_wrap-2 .card-flyer .text-box .text-container {
+                padding: 30px 18px;
+            }
+
+    #cards_landscape_wrap-2 .card-flyer {
+        background: #FFFFFF;
+        margin-top: 50px;
+        -webkit-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in;
+        -ms-transition: all 0.2s ease-in;
+        -o-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.40);
+    }
+
+        #cards_landscape_wrap-2 .card-flyer:hover {
+            background: #fff;
+            box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.50);
+            -webkit-transition: all 0.2s ease-in;
+            -moz-transition: all 0.2s ease-in;
+            -ms-transition: all 0.2s ease-in;
+            -o-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+            margin-top: 50px;
+        }
+
+        #cards_landscape_wrap-2 .card-flyer .text-box p {
+            margin-top: 10px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: #000000;
+        }
+
+        #cards_landscape_wrap-2 .card-flyer .text-box h6 {
+            margin-top: 0px;
+            margin-bottom: 4px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: 'Roboto Black', sans-serif;
+            letter-spacing: 1px;
+            color: #00acc1;
+        }

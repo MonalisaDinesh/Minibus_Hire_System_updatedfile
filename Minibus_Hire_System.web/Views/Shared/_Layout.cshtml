@@ -1,0 +1,96 @@
+﻿@using System.Security.Claims;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Minibus Hire</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- Third party plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    @{
+        var controllerName = string.Empty;
+        object controllerObj;
+        var actionName = string.Empty;
+        object actionObj;
+        if (ViewContext.RouteData.Values.TryGetValue("controller", out controllerObj))
+            controllerName = controllerObj.ToString();
+
+        if (ViewContext.RouteData.Values.TryGetValue("action", out actionObj))
+            actionName = actionObj.ToString();
+    }
+    <header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                @{ string _anchor = ""; }
+                @if (actionName != "Index" || controllerName != "Home")
+                {
+                    _anchor = "/Home/Index";
+                    <a class="navbar-brand js-scroll-trigger" asp-action="Index" asp-controller="Home">Minibus Hire</a>
+                }
+                else
+                {
+                    <a class="navbar-brand js-scroll-trigger" href="#page-top">Minibus Hire</a>
+                }
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="@($"{_anchor}#about")">About</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="@($"{_anchor}#services")">Services</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="@($"{_anchor}#portfolio")">Brands</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="@($"{_anchor}#contact")">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-action="Vehicle" asp-controller="Home">Vehicle</a></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @User.Claims.Where(m => m.Type == ClaimTypes.Name).Select(m => m.Value).FirstOrDefault()
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">My Profile</a>
+                                    <a class="dropdown-item" href="#">Order History</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" asp-action="SignOut" asp-controller="SignIn">Sign Out</a>
+                                </div>
+                            </li>
+                            if (!User.IsInRole(Minibus_Hire_System.Constant.UserRole.Customer))
+                            {
+                                <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-action="Index" asp-controller="Admin">Admin</a></li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-action="Index" asp-controller="SignIn">Signin</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    @RenderBody()
+
+    <!-- Footer-->
+    <footer class="bg-dark py-5">
+        <div class="container"><div class="small text-center text-muted">&copy; 2020  Minibus Hire System</div></div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

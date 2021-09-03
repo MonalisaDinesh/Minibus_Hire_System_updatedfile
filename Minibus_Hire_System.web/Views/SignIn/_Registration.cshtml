@@ -1,0 +1,84 @@
+﻿@model Minibus_Hire_System.web.Models.SignIn.RegistrationViewModel
+
+
+<form asp-controller="SignIn" asp-action="Registration">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h3>Registration</h3>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <button type="submit" class="submit">Sign Up</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <span class="label-span">First Name</span>
+                <input asp-for="FirstName" />
+                <span asp-validation-for="FirstName"></span>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <span class="label-span">Last Name</span>
+                <input asp-for="LastName" />
+                <span asp-validation-for="LastName"></span>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <span class="label-span">Address Line 1</span>
+                <input asp-for="Address1" />
+                <span asp-validation-for="Address1"></span>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <span class="label-span">Address Line 2</span>
+                <input asp-for="Address2" />
+                <span asp-validation-for="Address2"></span>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <span class="label-span">Address Line 3</span>
+                <input asp-for="Address3" />
+                <span asp-validation-for="Address3"></span>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <span class="label-span">Post Code</span>
+                <input asp-for="PostCode" />
+                <span asp-validation-for="PostCode"></span>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <span class="label-span">City</span>
+                <input asp-for="City" />
+                <span asp-validation-for="City"></span>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <span class="label-span">County</span>
+                <input asp-for="County" />
+                <span asp-validation-for="County"></span>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+                <span class="label-span">Country</span>
+                <input asp-for="Country" />
+                <span asp-validation-for="Country"></span>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <span class="label-span">Email</span>
+                <input asp-for="Email" />
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <span class="label-span">Phone Number</span>
+                <input asp-for="PhoneNumber" />
+                <span asp-validation-for="PhoneNumber"></span>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <span class="label-span">Password</span>
+                <input asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <span class="label-span">Confirm Password</span>
+                <input asp-for="ConfirmPassword" />
+                <span asp-validation-for="ConfirmPassword"></span>
+            </div>
+
+        </div>
+    </div>
+</form>

@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Minibus Hire</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <link href="~/css/AdminLayoutStyle.css" rel="stylesheet" />
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    @{
+        var controllerName = string.Empty;
+        object controllerObj;
+        if (ViewContext.RouteData.Values.TryGetValue("controller", out controllerObj))
+            controllerName = controllerObj.ToString();
+    }
+    <header>
+        <!-- Navigation-->
+        <div class="wrapper">
+
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Minubus Hire</h3>
+                </div>
+                <ul class="list-unstyled components">
+                    <p class="mb-2 text-right" style="font-size:1.5em;margin-right:10px;">Admin Portal</p>
+                    @*<li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                    <a href="#">Home 1</a>
+                </li>
+                <li>
+                    <a href="#">Home 2</a>
+                </li>
+                <li>
+                    <a href="#">Home 3</a>
+                </li>
+            </ul>
+        </li>*@
+                    <li class="@(controllerName == "Admin" ? "active" : "")"><a asp-action="Index" asp-controller="Admin">Dashboard</a></li>
+                    <li class="@(controllerName == "Customer" ? "active" : "")"><a asp-action="Index" asp-Controller="Customer">Customer</a></li>
+                    <li class="@(controllerName == "Employee" ? "active" : "")"><a asp-action="Index" asp-Controller="Employee">Employee</a></li>
+                    <li class="@(controllerName == "Vehicle" ? "active" : "")"><a asp-action="Index" asp-Controller="Vehicle">Vehicle</a></li>
+                    <li class="@(controllerName == "Bookings" ? "active" : "")"><a asp-action="Index" asp-Controller="Bookings">Bookings</a></li>
+                    <li class="@(controllerName == "Reservation" ? "active" : "")"><a asp-action="Index" asp-Controller="Reservation">Reservation</a></li>
+                    <li class="@(controllerName == "Reservation" ? "active" : "")"><a asp-action="PasswordGenerator" asp-Controller="Admin">Password Encryption</a></li>
+                </ul>
+
+                @*<ul class="list-unstyled CTAs">
+                        <li>
+                            <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                        </li>
+                        <li>
+                            <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                        </li>
+                    </ul>*@
+            </nav>
+
+            <!-- Page Content  -->
+            <div id="content" style="border:solid;">
+                <div class="admin-banner bg-dark" style="margin:-20px!important; height:200px;"></div>
+                <div class="page-header" style="margin-top:-100px;">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-2">
+                            <a id="sidebarCollapse" class="btn btn-sm btn-primary">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                        </div>
+                        <div class="col-sm-12 col-md-10 text-white">
+                            @RenderSection("page-header", required: false)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-12">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/AdminNavScript.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

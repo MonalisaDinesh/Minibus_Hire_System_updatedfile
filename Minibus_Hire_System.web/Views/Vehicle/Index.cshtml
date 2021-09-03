@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Minibus_Hire_System.Object.VehicleObject>
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="card shadow">
+    <div class="card-header">
+        <h3 class="mb-0">Vehicle</h3>
+        <div class="col-sm-12 text-right">
+            <a class="btn btn-info btn-lg" asp-action="AddVehicle" >Add Vehicle</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12 col-md-6"></div>
+            <div class="col-sm-12 col-md-6">
+                <div class="input-group input-group-icon">
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+                    <div class="input-icon"><i class="fa fa-search-plus text-primary"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table id="myTable" class="table table-dark table-striped">
+                    <tr class="header">
+                        <th style="width:60%;">Make <a href="#" onclick="sortTable('myTable', 0)"> <i class="fas fa-sort"></i></a></th>
+                        <th style="width:40%;">Model <a href="#" onclick="sortTable('myTable', 1)"> <i class="fas fa-sort"></i></a></th>
+                        <th style="width:40%;">Name_Plate<a href="#" onclick="sortTable('myTable', 2)"> <i class="fas fa-sort"></i></a></th>
+                        <th style="width:40%;"> Description<a href="#" onclick="sortTable('myTable', 3)"> <i class="fas fa-sort"></i></a></th>
+                        <th style="width:40%;"> Options</th>
+                    </tr>
+                    @foreach (var _vehicle in Model)
+                    {
+                        <tr>
+                            <td>@_vehicle.Make</td>
+                            <td>@_vehicle.Model</td>
+                            <td>@_vehicle.Name_plate</td>
+                            <td>@_vehicle.Description</td>
+                            <td><a asp-action="UpdateVehicle" asp-controller="Vehicle" asp-route-VehicleID="@_vehicle.Vehicle_ID" class="btn btn-sm btn-info">Edit</a></td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+@section Styles {
+
+    <link href="~/css/FormStyle.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/js/Sorting.js"></script>
+    <script>
+                function myFunction() {
+                    // Declare variables
+                    var input, filter, table, tr, td, i, txtValue;
+                    input = document.getElementById("myInput");
+                    filter = input.value.toUpperCase();
+                    table = document.getElementById("myTable");
+                    tr = table.getElementsByTagName("tr");
+
+                    // Loop through all table rows, and hide those who don't match the search query
+                    for (i = 0; i < tr.length; i++) {
+                        td = tr[i].getElementsByTagName("td")[0];
+                        if (td) {
+                            txtValue = td.textContent || td.innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                            } else {
+                                tr[i].style.display = "none";
+                            }
+                        }
+                    }
+                }
+    </script>
+}

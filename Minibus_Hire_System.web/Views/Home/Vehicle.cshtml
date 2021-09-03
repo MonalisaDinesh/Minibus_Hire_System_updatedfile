@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Minibus_Hire_System.Object.VehicleObject>
+@{
+    ViewData["Title"] = " Page";
+
+}
+
+<!-- Topic Cards -->
+<div id="cards_landscape_wrap-2">
+    <div class="container">
+        <div class="row">
+            @foreach (var _vehicle in Model)
+            {
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <a href="">
+                        <div class="card-flyer">
+                            <div class="text-box">
+                                <div class="image-box">
+                                    <img src="~/Images/Vehicle_img/@_vehicle.ImageFileName" />
+                                </div>
+                                <div class="text-container">
+                                    <h6>Make : @_vehicle.Make</h6>
+                                    <h6>Model : @_vehicle.Model</h6>
+                                    <h6>Mileage : @_vehicle.Mileage</h6>
+                                    <p>@_vehicle.Description.</p>
+                                    <a class="btn btn-dark btn-lg" asp-action="MakeBooking" asp-controller="Home" asp-route-vehicleID="@_vehicle.Vehicle_ID">Book</a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section Styles {
+    <style>
+    </style>
+}
